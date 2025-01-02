@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -11,7 +11,11 @@ export class CoinDataService {
 
   constructor(private http: HttpClient) { }
 
-  getPosts(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/${1}`);
+  // getPosts(): Observable<any[]> {
+  //   return this.http.get<any[]>(`${this.apiUrl}/${1}`);
+  // }
+
+  getTest(): any {
+    return 'testing coin-data service';
   }
 }

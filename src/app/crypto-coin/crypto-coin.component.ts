@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { CoinDataService } from '../coin-data.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-crypto-coin',
@@ -11,8 +12,11 @@ import { CoinDataService } from '../coin-data.service';
 export class CryptoCoinComponent implements OnInit {
 
   post: any;
+  coinDataService: CoinDataService = inject(CoinDataService);
 
-  // constructor(private coinDataService: CoinDataService) { }
+  constructor() {
+    this.post = this.coinDataService.getTest();
+  }
 
   ngOnInit(): void {
     console.log("Crypto Coin Component Initialized");
@@ -20,6 +24,7 @@ export class CryptoCoinComponent implements OnInit {
     // if (this.post) {
     //   console.log("Result:", this.post);
     // }
+    console.log(this.post);
   }
 
   // getData(): void {
