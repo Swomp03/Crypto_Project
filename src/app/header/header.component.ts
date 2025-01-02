@@ -8,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  currentTime: string = new Date().toString().substring(0, 25);;
+  currentTime: string = new Date().toString().substring(0, 25);
+  test: string = 'testing';
 
   ngOnInit(): void {
     setInterval(() => {
