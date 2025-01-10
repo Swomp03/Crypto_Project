@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { CoinDataService } from '../coin-data.service';
 import { HttpClient } from '@angular/common/http';
@@ -12,8 +12,15 @@ import { HttpClient } from '@angular/common/http';
 export class CryptoCoinComponent implements OnInit {
 
   post: any;
-
   jsonPlaceholder: any;
+  @Input() cryptoId!: string;
+
+  cryptoName: string | undefined;
+  image: string | undefined;
+  symbol: string | undefined;
+  currentPrice: string | undefined;
+  priceChange: string | undefined;
+  marketCap: string | undefined;
 
   constructor(private coinDataService: CoinDataService) {
     this.post = this.coinDataService.getTest();
@@ -29,21 +36,24 @@ export class CryptoCoinComponent implements OnInit {
     // }
     console.log(this.post);
 
-    this.coinDataService.getJsonPlaceholder().subscribe({
+    console.log("Crypto Id:", this.cryptoId)
+
+    this.coinDataService.getJsonPlaceholder(this.cryptoId).subscribe({
       next:(data) =>{
-        this.jsonPlaceholder = data[0];
+        this.jsonPlaceholder = data;
         console.log("JsonPlaceholder:", this.jsonPlaceholder);
+
+        this.cryptoName = data.name;
+        this.image = data.image.large;
+        this.symbol = data.symbol.toUpperCase();
+        this.currentPrice = data.market_data.current_price.cad;
+        this.priceChange = data.market_data.price_change_percentage_7d;
+        this.marketCap = data.market_data.market_cap.cad;
+        console.log(this.image);
       },
       error:(error) =>{
         console.error('Error fetching data:', error);
       }
     });
   }
-
-  // getData(): void {
-  //   this.coinDataService.getPosts().subscribe({
-  //     next: (data) => (this.post = data),
-  //     error: (err) => console.error('Error fetching posts:', err),
-  //   });
-  // }
 }

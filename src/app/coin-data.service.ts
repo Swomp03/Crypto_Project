@@ -8,7 +8,16 @@ import { environment } from '../environments/environment';
 })
 export class CoinDataService {
 
-  private apiUrl = 'https://jsonplaceholder.typicode.com/posts';
+  // private apiUrl = 'https://jsonplaceholder.typicode.com/posts';
+
+  // private apiUrl = 'https://api.coingecko.com/api/v3/coins/bitcoin?x_cg_demo_api_key=';
+
+  private apiUrl = 'https://api.coingecko.com/api/v3/coins/';
+  private apiEnd = '?x_cg_demo_api_key='
+
+  private apiKey = environment.apiKey;
+
+  public apiResult : any;
 
   constructor(private http: HttpClient) { }
 
@@ -20,8 +29,9 @@ export class CoinDataService {
     return 'testing coin-data service';
   }
 
-  getJsonPlaceholder(): Observable<any>{
-    // console.log("Process.env stuff:", environment.apiKey)
-    return this.http.get(this.apiUrl)
+  getJsonPlaceholder(cryptoId:string): Observable<any>{
+
+    // console.log(this.apiUrl+this.apiKey)
+    return this.http.get(this.apiUrl + cryptoId + this.apiEnd + this.apiKey)
   }
 }
