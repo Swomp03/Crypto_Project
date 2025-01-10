@@ -18,4 +18,8 @@ export class CoinDataService {
   getTest(): any {
     return 'testing coin-data service';
   }
+
+  getJsonPlaceholder(): Observable<any>{
+    return this.http.get(this.apiUrl)
+  }
 }

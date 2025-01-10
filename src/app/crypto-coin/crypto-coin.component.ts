@@ -12,10 +12,13 @@ import { HttpClient } from '@angular/common/http';
 export class CryptoCoinComponent implements OnInit {
 
   post: any;
-  coinDataService: CoinDataService = inject(CoinDataService);
 
-  constructor() {
+  jsonPlaceholder: any;
+
+  constructor(private coinDataService: CoinDataService) {
     this.post = this.coinDataService.getTest();
+
+    // this.jsonPlaceholder = this.coinDataService.getJsonPlaceholder();
   }
 
   ngOnInit(): void {
@@ -25,6 +28,16 @@ export class CryptoCoinComponent implements OnInit {
     //   console.log("Result:", this.post);
     // }
     console.log(this.post);
+
+    this.coinDataService.getJsonPlaceholder().subscribe({
+      next:(data) =>{
+        this.jsonPlaceholder = data;
+        console.log("JsonPlaceholder:", this.jsonPlaceholder);
+      },
+      error:(error) =>{
+        console.error('Error fetching data:', error);
+      }
+    });
   }
 
   // getData(): void {
