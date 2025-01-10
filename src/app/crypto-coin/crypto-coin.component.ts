@@ -31,7 +31,7 @@ export class CryptoCoinComponent implements OnInit {
 
     this.coinDataService.getJsonPlaceholder().subscribe({
       next:(data) =>{
-        this.jsonPlaceholder = data;
+        this.jsonPlaceholder = data[0];
         console.log("JsonPlaceholder:", this.jsonPlaceholder);
       },
       error:(error) =>{
