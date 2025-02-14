@@ -10,7 +10,7 @@ import { OnInit } from '@angular/core';
 export class RefreshTimerService {
   public currentTime: number = 0;
   private timerSubscription? : Subscription;
-  private readonly maxTime = 30;
+  private readonly maxTime = 300;
 
   constructor() { }
 
@@ -24,7 +24,7 @@ export class RefreshTimerService {
 
   private startTimer(){
     this.timerSubscription = interval(1000).subscribe(() =>{
-      console.log("Current time:", this.currentTime);
+      // console.log("Current time:", this.currentTime);
       this.currentTime++;
       if(this.currentTime >= this.maxTime){
         this.resetTimer();

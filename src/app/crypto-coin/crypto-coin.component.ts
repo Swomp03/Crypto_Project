@@ -37,6 +37,14 @@ export class CryptoCoinComponent implements OnInit {
     // if (this.post) {
     //   console.log("Result:", this.post);
     // }
+    this.getCryptoInfo();
+
+    setInterval(() => {
+      this.getCryptoInfo();
+    }, 300000);
+  }
+
+  getCryptoInfo(){
     console.log(this.post);
 
     console.log("Crypto Id:", this.cryptoId)

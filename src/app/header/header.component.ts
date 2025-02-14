@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
     setInterval(() => {
       this.currentTime = new Date().toString().substring(0, 25);
       this.lastUpdatedTime = this.refreshTimer.formatTime();
-      console.log("Updated Time:", this.lastUpdatedTime);
+      // console.log("Updated Time:", this.lastUpdatedTime);
       // console.log(this.currentTime);
     }, 1000);
   }
