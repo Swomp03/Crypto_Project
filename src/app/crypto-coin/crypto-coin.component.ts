@@ -2,10 +2,11 @@ import { Component, inject, Input } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { CoinDataService } from '../coin-data.service';
 import { HttpClient } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-crypto-coin',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './crypto-coin.component.html',
   styleUrl: './crypto-coin.component.css'
 })
@@ -21,6 +22,8 @@ export class CryptoCoinComponent implements OnInit {
   currentPrice: string | undefined;
   priceChange: string | undefined;
   marketCap: string | undefined;
+
+  isUp: boolean | undefined = false;
 
   constructor(private coinDataService: CoinDataService) {
     this.post = this.coinDataService.getTest();
@@ -50,6 +53,19 @@ export class CryptoCoinComponent implements OnInit {
         this.priceChange = data.market_data.price_change_percentage_7d;
         this.marketCap = data.market_data.market_cap.cad;
         console.log(this.image);
+        
+        if(this.priceChange){
+          let price_up_down = (this.priceChange + '').split("");
+          console.log("Price change up down:", price_up_down[0]);
+
+          if(price_up_down[0] == "-"){
+            this.isUp = false;
+          }
+          else{
+            this.isUp = true;
+          }
+        }
+        
       },
       error:(error) =>{
         console.error('Error fetching data:', error);

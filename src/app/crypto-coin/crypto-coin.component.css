@@ -4,5 +4,15 @@
 }
 
 .drop-shadow-styling{
-    filter: drop-shadow(0.5rem 0.5rem 0.3rem #000000);
+    filter: drop-shadow(0.5rem 0.5rem 0.5rem #000000);
+}
+
+.red-text{
+    --tw-text-opacity: 1;
+    color: rgba(239, 68, 68, var(--tw-text-opacity));
+}
+
+.green-text{
+    --tw-text-opacity: 1;
+    color: rgba(5, 150, 105, var(--tw-text-opacity));
 }

@@ -1,5 +1,5 @@
 <div class="flex text-center m-5 rounded-2xl bg-slate-300">
-    <div class="flex-auto justify-center mb-2">
+    <div class="flex-auto justify-center mb-4">
         <p class="font-bold text-2xl">{{cryptoName}}</p>
         <img class="h-24 crypto-image drop-shadow-styling" src={{image}} alt={{cryptoId}}>
     </div>
@@ -11,12 +11,12 @@
 
     <div class="flex-auto space-y-6">
         <p class="font-bold text-2xl">Current Price (CAD)</p>
-        <p class="font-bold text-2xl">${{currentPrice}}</p>
+        <p class="font-bold text-2xl" [ngClass]="{'red-text': !isUp, 'green-text': isUp}">${{currentPrice}}</p>
     </div>
 
     <div class="flex-auto space-y-6">
         <p class="font-bold text-2xl">% Price Change in 7 Days (CAD)</p>
-        <p class="font-bold text-2xl">{{priceChange}}%</p>
+        <p class="font-bold text-2xl" [ngClass]="{'red-text': !isUp, 'green-text': isUp}">{{priceChange}}%</p>
     </div>
 
     <div class="flex-auto space-y-6">
