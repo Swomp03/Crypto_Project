@@ -1,26 +1,26 @@
-<div class="flex text-center m-5 rounded-2xl bg-slate-300 ">
-    <div class="flex-auto">
-        <p class="font-bold">{{cryptoName}}</p>
-        <img src={{image}} alt={{cryptoId}}>
+<div class="flex text-center m-5 rounded-2xl bg-slate-300">
+    <div class="flex-auto justify-center mb-2">
+        <p class="font-bold text-2xl">{{cryptoName}}</p>
+        <img class="h-24 crypto-image drop-shadow-styling" src={{image}} alt={{cryptoId}}>
     </div>
 
-    <div class="flex-auto">
-        <p class="font-bold">Symbol:</p>
-        <p class="font-bold">{{symbol}}</p>
+    <div class="flex-auto space-y-6">
+        <p class="font-bold text-2xl">Symbol:</p>
+        <p class="font-bold text-2xl">{{symbol}}</p>
     </div>
 
-    <div class="flex-auto">
-        <p class="font-bold">Current Price (CAD)</p>
-        <p class="font-bold">{{currentPrice}}</p>
+    <div class="flex-auto space-y-6">
+        <p class="font-bold text-2xl">Current Price (CAD)</p>
+        <p class="font-bold text-2xl">${{currentPrice}}</p>
     </div>
 
-    <div class="flex-auto">
-        <p class="font-bold">% Price Change in 7 Days (CAD)</p>
-        <p class="font-bold">{{priceChange}}</p>
+    <div class="flex-auto space-y-6">
+        <p class="font-bold text-2xl">% Price Change in 7 Days (CAD)</p>
+        <p class="font-bold text-2xl">{{priceChange}}%</p>
     </div>
 
-    <div class="flex-auto">
-        <p class="font-bold">Market Cap (CAD)</p>
-        <p class="font-bold">{{marketCap}}</p>
+    <div class="flex-auto space-y-6">
+        <p class="font-bold text-2xl">Market Cap (CAD)</p>
+        <p class="font-bold text-2xl">${{marketCap}}</p>
     </div>
 </div>
