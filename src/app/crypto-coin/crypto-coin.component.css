@@ -1,18 +1,18 @@
-.crypto-image{
+.crypto-image {
     display: block;
     margin: 0 auto;
 }
 
-.drop-shadow-styling{
+.drop-shadow-styling {
     filter: drop-shadow(0.5rem 0.5rem 0.5rem #000000);
 }
 
-.red-text{
+.red-text {
     --tw-text-opacity: 1;
     color: rgba(239, 68, 68, var(--tw-text-opacity));
 }
 
-.green-text{
+.green-text {
     --tw-text-opacity: 1;
     color: rgba(5, 150, 105, var(--tw-text-opacity));
 }

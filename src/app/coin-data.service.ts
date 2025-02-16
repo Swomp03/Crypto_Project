@@ -17,7 +17,7 @@ export class CoinDataService {
 
   private apiKey = environment.apiKey;
 
-  public apiResult : any;
+  public apiResult: any;
 
   constructor(private http: HttpClient) { }
 
@@ -26,10 +26,10 @@ export class CoinDataService {
   // }
 
   getTest(): any {
-    return 'testing coin-data service';
+    // return 'testing coin-data service';
   }
 
-  getJsonPlaceholder(cryptoId:string): Observable<any>{
+  getJsonPlaceholder(cryptoId: string): Observable<any> {
 
     // console.log(this.apiUrl+this.apiKey)
     return this.http.get(this.apiUrl + cryptoId + this.apiEnd + this.apiKey)

@@ -32,7 +32,7 @@ export class CryptoCoinComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log("Crypto Coin Component Initialized");
+    // console.log("Crypto Coin Component Initialized");
     // this.getData();
     // if (this.post) {
     //   console.log("Result:", this.post);
@@ -44,15 +44,15 @@ export class CryptoCoinComponent implements OnInit {
     }, 300000);
   }
 
-  getCryptoInfo(){
+  getCryptoInfo() {
     console.log(this.post);
 
-    console.log("Crypto Id:", this.cryptoId)
+    // console.log("Crypto Id:", this.cryptoId)
 
     this.coinDataService.getJsonPlaceholder(this.cryptoId).subscribe({
-      next:(data) =>{
+      next: (data) => {
         this.jsonPlaceholder = data;
-        console.log("JsonPlaceholder:", this.jsonPlaceholder);
+        // console.log("JsonPlaceholder:", this.jsonPlaceholder);
 
         this.cryptoName = data.name;
         this.image = data.image.large;
@@ -61,21 +61,22 @@ export class CryptoCoinComponent implements OnInit {
         this.priceChange = data.market_data.price_change_percentage_7d;
         this.marketCap = data.market_data.market_cap.cad;
         console.log(this.image);
-        
-        if(this.priceChange){
-          let price_up_down = (this.priceChange + '').split("");
-          console.log("Price change up down:", price_up_down[0]);
 
-          if(price_up_down[0] == "-"){
+        if (this.priceChange) {
+          let price_up_down = (this.priceChange + '').split("");
+          // console.log("Price change up down:", price_up_down[0]);
+
+          if (price_up_down[0] == "-") {
             this.isUp = false;
           }
-          else{
+          else {
             this.isUp = true;
+            this.priceChange = "+" + this.priceChange;
           }
         }
-        
+
       },
-      error:(error) =>{
+      error: (error) => {
         console.error('Error fetching data:', error);
       }
     });
